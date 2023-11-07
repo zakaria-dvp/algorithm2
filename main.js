@@ -28,20 +28,30 @@
 
 // Function to calculate dot product of two vectors
 function dotProduct(v1, v2) {
-    if (v1.length !== v2.length) {
-      throw new Error("Vectors must have the same length.");
-    }
-  
-    let product = 0;
-    for (let i = 0; i < v1.length; i++) {
-      product += v1[i] * v2[i];
-    }
-  
-    return product;
+  if (v1.length !== v2.length) {
+    throw new Error("Vectors must have the same length.");
   }
-  
-  // Function to check if two vectors are orthogonal
-  function areOrthogonal(v1, v2) {
-    const product = dotProduct(v1, v2);
-    return product === 0;
+
+  let product = 0;
+  for (let i = 0; i < v1.length; i++) {
+    product += v1[i] * v2[i];
   }
+
+  return product;
+}
+
+// Function to check if two vectors are orthogonal
+function areOrthogonal(v1, v2) {
+  const product = dotProduct(v1, v2);
+  return product === 0;
+}
+
+// Example usage:
+const vector1 = [1, 0, -1];
+const vector2 = [0, 1, 0];
+
+if (areOrthogonal(vector1, vector2)) {
+  console.log("The vectors are orthogonal.");
+} else {
+  console.log("The vectors are not orthogonal.");
+  }
